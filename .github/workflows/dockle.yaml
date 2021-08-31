@@ -1,4 +1,4 @@
-name: Secretlint
+name: dockle
 on: [push, pull_request]
 
 jobs:

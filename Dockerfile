@@ -1,3 +1,7 @@
-FROM alpine:latest
+FROM alpine:3.14
 
-CMD echo "Helo, World!"
+ARG SAMPLE=AKIAIOSFODNN7EXAMPLE
+
+ENV TEST=AKIAIOSFODNN7EXAMPLE
+
+CMD ["echo", "Helo, World!", "$TEST"]
