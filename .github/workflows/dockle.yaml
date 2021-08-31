@@ -1,0 +1,18 @@
+name: Secretlint
+on: [push, pull_request]
+
+jobs:
+  docle:
+    name: dockle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build an image from Dockerfile
+        run: |
+          docker build -t ghcr.io/k-hal/secretscan-sandbox:${{ github.sha }} .
+      - uses: hands-lab/dockle-action@v1
+        with:
+          image: 'ghcr.io/k-hal/secretscan-sandbox:${{ github.sha }}'
+          exit-code: '1'
+          exit-level: WARN
