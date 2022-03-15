@@ -1,3 +1,3 @@
-FROM alpine:latest
+FROM alpine:3.15
 
-CMD echo "Helo, World!"
+CMD ["echo", "Helo, World!"]
