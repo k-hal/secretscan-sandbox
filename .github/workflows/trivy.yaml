@@ -1,4 +1,4 @@
-name: build
+name: trivy
 on:
   push:
     branches:
@@ -8,8 +8,8 @@ on:
     - cron: '0 20 * * *'
   
 jobs:
-  build:
-    name: Build
+  trivy:
+    name: trivy
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout code
@@ -23,8 +23,7 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: 'ghcr.io/k-hal/secretscan-sandbox:${{ github.sha }}'
-          format: 'template'
-          template: '@/contrib/sarif.tpl'
+          format: 'sarif'
           output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
 
