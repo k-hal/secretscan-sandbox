@@ -20,7 +20,7 @@ jobs:
           output-file: 'hadolint-results.sarif'
       - name: Upload hadlint scan results to GitHub Security tab
         if: ${{ always() }}
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'hadolint-results.sarif'
           category: 'hadolint'
