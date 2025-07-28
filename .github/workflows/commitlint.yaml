@@ -11,7 +11,7 @@ jobs:
         with:
           fetch-depth: 0
         name: checkout
-      - uses: wagoid/commitlint-github-action@v5
+      - uses: wagoid/commitlint-github-action@v6
         with:
           configFile: ./.commitlintrc.js
         name: commitlint
