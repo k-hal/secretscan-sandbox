@@ -1,4 +1,4 @@
-FROM alpine:3.22
+FROM alpine:3.23
 
 RUN adduser -h /home/dockle -s /bin/ash -D dockle
 USER dockle
